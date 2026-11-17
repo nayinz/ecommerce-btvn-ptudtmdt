@@ -107,5 +107,18 @@
       <span>Hành trình JavaScript của bạn bắt đầu từ đây.</span>
     </footer>
   </div>
+
+  <dialog class="lesson-viewer" id="lesson-viewer" aria-labelledby="viewer-title">
+    <div class="lesson-viewer-header">
+      <div>
+        <p class="viewer-kicker">ĐANG HỌC</p>
+        <h2 id="viewer-title">Bài học</h2>
+      </div>
+      <button class="viewer-back" id="viewer-back" type="button">
+        <span aria-hidden="true">←</span> Quay lại danh sách
+      </button>
+    </div>
+    <iframe class="lesson-frame" id="lesson-frame" title="Nội dung bài học"></iframe>
+  </dialog>
 </body>
 </html>
