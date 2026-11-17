@@ -170,9 +170,9 @@ const lessons = [
 ];
 
 const chapterPaths = {
-  ch08: "../../../../../Downloads/JavaScript%201%20Language%20Foundations/ch08-lab-start-master/",
-  ch09: "../../../../../Downloads/JavaScript%202%20DOM%20and%20Events/ch09-lab-start-master/",
-  ch10: "../../../../../Downloads/JavaScript%203%20jQuery/ch10-lab-start-master/",
+  ch08: "Lab08/",
+  ch09: "Lab09/",
+  ch10: "Lab10/",
 };
 
 const lessonGrid = document.querySelector("#lesson-grid");
@@ -180,6 +180,10 @@ const lessonCount = document.querySelector("#lesson-count");
 const emptyState = document.querySelector("#empty-state");
 const searchInput = document.querySelector("#lesson-search");
 const filterButtons = document.querySelectorAll(".filter-button");
+const lessonViewer = document.querySelector("#lesson-viewer");
+const lessonFrame = document.querySelector("#lesson-frame");
+const viewerTitle = document.querySelector("#viewer-title");
+const viewerBack = document.querySelector("#viewer-back");
 
 let activeFilter = "all";
 
@@ -193,6 +197,7 @@ function normalizeText(value) {
 
 function createLessonCard(lesson, index) {
   const chapterNumber = lesson.chapter.slice(-2);
+  const lessonPath = `${chapterPaths[lesson.chapter]}${lesson.file}`;
   const card = document.createElement("article");
   card.className = "lesson-card";
   card.innerHTML = `
@@ -202,12 +207,41 @@ function createLessonCard(lesson, index) {
     </div>
     <h3>${lesson.title}</h3>
     <p>${lesson.description}</p>
-    <a class="lesson-link" href="${chapterPaths[lesson.chapter]}${lesson.file}" target="_blank" rel="noopener noreferrer">
+    <a class="lesson-link" href="${lessonPath}" data-lesson-path="${lessonPath}">
       <span>Mở bài học</span><span aria-hidden="true">↗</span>
     </a>
   `;
   card.style.setProperty("--card-order", index);
   return card;
+}
+
+function findLessonByPath(path) {
+  return lessons.find(
+    (lesson) => `${chapterPaths[lesson.chapter]}${lesson.file}` === path,
+  );
+}
+
+function showLesson(lesson) {
+  const lessonPath = `${chapterPaths[lesson.chapter]}${lesson.file}`;
+  viewerTitle.textContent = lesson.title;
+  lessonFrame.src = lessonPath;
+  if (!lessonViewer.open) {
+    lessonViewer.showModal();
+  }
+}
+
+function syncViewerWithLocation() {
+  const params = new URLSearchParams(window.location.hash.slice(1));
+  const lesson = findLessonByPath(params.get("lesson"));
+  if (lesson) {
+    showLesson(lesson);
+    return;
+  }
+
+  if (lessonViewer.open) {
+    lessonViewer.close();
+    lessonFrame.removeAttribute("src");
+  }
 }
 
 function renderLessons() {
@@ -228,6 +262,48 @@ function renderLessons() {
   lessonGrid.hidden = filteredLessons.length === 0;
 }
 
+lessonGrid.addEventListener("click", (event) => {
+  const link = event.target.closest("a[data-lesson-path]");
+  if (!link) {
+    return;
+  }
+
+  const lesson = findLessonByPath(link.dataset.lessonPath);
+  if (!lesson) {
+    return;
+  }
+
+  event.preventDefault();
+  const lessonPath = link.dataset.lessonPath;
+  window.history.pushState(
+    { lessonViewer: true, lessonPath },
+    "",
+    `#lesson=${encodeURIComponent(lessonPath)}`,
+  );
+  showLesson(lesson);
+});
+
+viewerBack.addEventListener("click", () => {
+  if (window.history.state && window.history.state.lessonViewer) {
+    window.history.back();
+    return;
+  }
+
+  window.history.replaceState(
+    null,
+    "",
+    `${window.location.pathname}${window.location.search}`,
+  );
+  syncViewerWithLocation();
+});
+
+lessonViewer.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  viewerBack.click();
+});
+
+window.addEventListener("popstate", syncViewerWithLocation);
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     activeFilter = button.dataset.filter;
@@ -243,3 +319,4 @@ filterButtons.forEach((button) => {
 searchInput.addEventListener("input", renderLessons);
 
 renderLessons();
+syncViewerWithLocation();
