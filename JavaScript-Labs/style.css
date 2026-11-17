@@ -517,6 +517,11 @@ a {
   color: #23876a;
 }
 
+.chapter-badge.ch10 {
+  background: #fff3df;
+  color: #a76a15;
+}
+
 .lesson-number {
   color: #b4b1c0;
   font: 700 11px "Manrope", sans-serif;
