@@ -579,6 +579,76 @@ a {
   font-size: 13px;
 }
 
+.lesson-viewer {
+  width: min(1200px, calc(100% - 32px));
+  height: min(900px, calc(100% - 32px));
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 24px 80px rgba(27, 21, 54, 0.3);
+}
+
+.lesson-viewer::backdrop {
+  background: rgba(31, 26, 51, 0.64);
+  backdrop-filter: blur(4px);
+}
+
+.lesson-viewer-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.viewer-kicker {
+  margin: 0 0 3px;
+  color: var(--purple);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.lesson-viewer-header h2 {
+  margin: 0;
+  font: 700 16px "Manrope", sans-serif;
+}
+
+.viewer-back {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid #e9e4fc;
+  border-radius: 10px;
+  background: #faf9ff;
+  color: var(--purple-dark);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.viewer-back:hover {
+  border-color: var(--purple);
+  background: var(--purple);
+  color: white;
+}
+
+.lesson-frame {
+  width: 100%;
+  height: calc(100% - 76px);
+  display: block;
+  border: 0;
+  background: white;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -735,6 +805,32 @@ a {
 
   .lesson-card {
     padding: 17px;
+  }
+
+  .lesson-viewer {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border-radius: 13px;
+  }
+
+  .lesson-viewer-header {
+    min-height: 68px;
+    padding: 10px 12px;
+  }
+
+  .lesson-viewer-header h2 {
+    font-size: 14px;
+  }
+
+  .viewer-back {
+    min-height: 36px;
+    gap: 5px;
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .lesson-frame {
+    height: calc(100% - 68px);
   }
 
   .footer {
