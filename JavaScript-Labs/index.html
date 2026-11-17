@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f4ff">
+  <meta name="description" content="Dashboard học JavaScript của sinh viên Vũ Hà Phi Yến.">
+  <title>Học JavaScript cùng Phi Yến</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Trang chủ">
+        <span class="brand-mark" aria-hidden="true">Y</span>
+        <span class="brand-name">study<span>space</span></span>
+      </a>
+      <span class="topbar-label"><span class="status-dot"></span> Không gian học tập cá nhân</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> HỌC TẬP · THỰC HÀNH · PHÁT TRIỂN</p>
+          <h1 id="page-title">Học JavaScript<br><span>cùng Phi Yến</span></h1>
+          <p class="hero-description">Mỗi dòng code là một bước tiến. Chọn bài học và bắt đầu hành trình của bạn nhé!</p>
+          <a class="hero-button" href="#lessons">Khám phá bài học <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="code-card">
+            <div class="code-dots"><i></i><i></i><i></i></div>
+            <div class="code-lines">
+              <span><b>const</b> dream = <em>"developer"</em>;</span>
+              <span><b>while</b> (learning) {</span>
+              <span class="indent">keepGrowing(); <strong>✦</strong></span>
+              <span>}</span>
+            </div>
+          </div>
+          <span class="floating-star star-a">✦</span>
+          <span class="floating-star star-b">✧</span>
+          <span class="art-caption">viết code, tạo điều mới ✨</span>
+        </div>
+      </section>
+
+      <section class="profile-strip" aria-label="Thông tin sinh viên">
+        <div class="profile-main">
+          <div class="avatar" aria-hidden="true">PY</div>
+          <div>
+            <p class="profile-kicker">SINH VIÊN</p>
+            <h2>Vũ Hà Phi Yến</h2>
+          </div>
+        </div>
+        <div class="profile-detail">
+          <span class="detail-label">LỚP</span>
+          <strong>EE0002 - K50</strong>
+        </div>
+        <div class="profile-detail">
+          <span class="detail-label">MSSV</span>
+          <strong>31241021696</strong>
+        </div>
+        <div class="profile-detail course-detail">
+          <span class="detail-label">HỌC PHẦN</span>
+          <strong>Phát triển ứng dụng thương mại điện tử</strong>
+        </div>
+      </section>
+
+      <section class="lessons-section" id="lessons" aria-labelledby="lessons-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">THƯ VIỆN BÀI HỌC</p>
+            <h2 id="lessons-title">Chọn bài để bắt đầu</h2>
+            <p class="section-subtitle">Các bài thực hành JavaScript từ chương 08 và chương 09.</p>
+          </div>
+          <div class="lesson-count" aria-live="polite">
+            <span class="count-number" id="lesson-count">15</span>
+            <span>bài học</span>
+          </div>
+        </div>
+
+        <div class="lesson-controls">
+          <div class="filter-tabs" role="group" aria-label="Lọc bài học theo chương">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tất cả</button>
+            <button class="filter-button" type="button" data-filter="ch08" aria-pressed="false">Chương 08</button>
+            <button class="filter-button" type="button" data-filter="ch09" aria-pressed="false">Chương 09</button>
+          </div>
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="lesson-search" type="search" placeholder="Tìm bài học..." autocomplete="off">
+            <span class="sr-only">Tìm kiếm bài học</span>
+          </label>
+        </div>
+
+        <div class="lesson-grid" id="lesson-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>Không tìm thấy bài học phù hợp. Hãy thử từ khóa khác nhé.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Được tạo với <span class="heart" aria-label="tình yêu">♥</span> bởi Phi Yến</span>
+      <span>Hành trình JavaScript của bạn bắt đầu từ đây.</span>
+    </footer>
+  </div>
+</body>
+</html>
 
