@@ -104,11 +104,75 @@ const lessons = [
     description: "Thực hành xử lý giao diện đăng ký bằng JavaScript.",
     file: "lab09-walkthrough08.html",
   },
+  {
+    chapter: "ch10",
+    number: "01",
+    title: "jQuery — DOM Example",
+    description: "Bắt đầu thực hành tương tác với DOM bằng jQuery.",
+    file: "lab10-walkthrough01.html",
+  },
+  {
+    chapter: "ch10",
+    number: "03",
+    title: "Biểu mẫu đăng ký với jQuery",
+    description: "Thực hành biểu mẫu và tương tác trên trang web.",
+    file: "lab10-walkthrough03.html",
+  },
+  {
+    chapter: "ch10",
+    number: "04",
+    title: "jQuery — Walkthrough 04",
+    description: "Bài thực hành tiếp theo trong chương jQuery.",
+    file: "lab10-walkthrough04.html",
+  },
+  {
+    chapter: "ch10",
+    number: "05",
+    title: "jQuery — Walkthrough 05",
+    description: "Tiếp tục khám phá các thao tác với jQuery.",
+    file: "lab10-walkthrough05.html",
+  },
+  {
+    chapter: "ch10",
+    number: "06",
+    title: "jQuery — Walkthrough 06",
+    description: "Vận dụng jQuery trong các ví dụ thực hành.",
+    file: "lab10-walkthrough06.html",
+  },
+  {
+    chapter: "ch10",
+    number: "07",
+    title: "jQuery — Walkthrough 07",
+    description: "Thực hành thêm các tính năng tương tác.",
+    file: "lab10-walkthrough07.html",
+  },
+  {
+    chapter: "ch10",
+    number: "08",
+    title: "jQuery — Walkthrough 08",
+    description: "Khám phá thêm các tiện ích của jQuery.",
+    file: "lab10-walkthrough08.html",
+  },
+  {
+    chapter: "ch10",
+    number: "09",
+    title: "Tải danh sách thành phố",
+    description: "Dùng $.each() để hiển thị dữ liệu thành phố.",
+    file: "lab10-walkthrough09.html",
+  },
+  {
+    chapter: "ch10",
+    number: "10",
+    title: "jQuery — Walkthrough 10",
+    description: "Hoàn thiện chuỗi bài thực hành jQuery.",
+    file: "lab10-walkthrough10.html",
+  },
 ];
 
 const chapterPaths = {
   ch08: "../../../../../Downloads/JavaScript%201%20Language%20Foundations/ch08-lab-start-master/",
   ch09: "../../../../../Downloads/JavaScript%202%20DOM%20and%20Events/ch09-lab-start-master/",
+  ch10: "../../../../../Downloads/JavaScript%203%20jQuery/ch10-lab-start-master/",
 };
 
 const lessonGrid = document.querySelector("#lesson-grid");
